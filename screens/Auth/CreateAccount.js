@@ -1,19 +1,21 @@
 import React from 'react';
-import {Text} from "react-native-paper";
 import {View, Button, TextInput, StyleSheet} from "react-native";
-import {AuthContext} from "../context";
 import styled from 'styled-components/native'
+import {AuthContext} from "../../context";
 
-const SignIn = ({ navigation }) => {
-    const { signIn } = React.useContext(AuthContext);
+const CreateAccount = ({ navigation }) => {
+
+    const { signUp } = React.useContext(AuthContext);
 
     const [username, onChangeName] = React.useState('');
     const [password, onChangePassword] = React.useState('');
+    const [firstName, onChangeFirstName] = React.useState('');
+    const [lastName, onChangeLastName] = React.useState('');
 
     return (
         <View style={styles.container}>
             <TextTitle>
-                Авторизация
+                Регистрация
             </TextTitle>
             <TextInput
                 style={styles.input}
@@ -28,11 +30,22 @@ const SignIn = ({ navigation }) => {
                 placeholder="Введите password"
                 secureTextEntry
             />
-            <Button title="Sign In" onPress={()=> signIn({username,password})}/>
-            <Button title="Create Account" onPress={()=> navigation.push('CreateAccount')} />
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeFirstName}
+                value={firstName}
+                placeholder="Введите Имя"
+            />
+            <TextInput
+                style={styles.input}
+                onChangeText={onChangeLastName}
+                value={lastName}
+                placeholder="Введите Фамилию"
+            />
+            <Button title="Зарегистрироваться" onPress={()=> signUp({username,password,firstName,lastName, navigation})}/>
         </View>
     );
-}
+};
 
 const TextTitle = styled.Text`
   margin-bottom: 20px;
@@ -43,19 +56,19 @@ const TextTitle = styled.Text`
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center'
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     input: {
         paddingLeft: 20,
         paddingRight: 20,
         width: 250,
         height: 50,
-        margin: 12,
+        margin: 8,
         borderWidth: 1,
         borderRadius: 30
     },
 });
 
-export default SignIn;
+export default CreateAccount;

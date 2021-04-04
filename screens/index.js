@@ -1,15 +1,15 @@
 import ChatScreen from "./ChatScreen";
-import Feeds from "./Feeds";
+import Message from "./Chat/Message/Message";
 import Profile from "./Profile";
-import SignIn from "./SignIn";
-import CreateAccount from "./CreateAccount";
-import Splash from './Splash'
+import SignIn from "./Auth/SignIn";
+import CreateAccount from "./Auth/CreateAccount";
+import Splash from './Auth/Splash'
 
 export {
     ChatScreen,
-    Feeds,
     Profile,
     SignIn,
     CreateAccount,
-    Splash
+    Splash,
+    Message
 }

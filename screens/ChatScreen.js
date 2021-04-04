@@ -3,7 +3,6 @@ import {View, Text, SafeAreaView, TextInput, StyleSheet, ScrollView} from 'react
 import styled from "styled-components/native";
 import Chat from "./Chat/Chat";
 import {connect} from "react-redux";
-import axios from "axios";
 
 const ChatScreen = (props) => {
 

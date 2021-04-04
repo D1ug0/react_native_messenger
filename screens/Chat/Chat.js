@@ -15,27 +15,39 @@ export default function Chat({items, navigate}) {
         <WrapperChats>
             {items.map((item, index) => (
 
-                    <Swipeable
-                        rightButtons={[
-                            <SwipeViewButton style={{ backgroundColor: '#B4C1CB', marginRight: 20 }}>
-                                <FontAwesome5 name="volume-up" size={40}/>
-                            </SwipeViewButton>,
-                            <SwipeViewButton>
-                                <FontAwesome5 name="trash-alt" size={40}/>
-                            </SwipeViewButton>
-                        ]}>
-                        <ChatBlock onPress={navigate.bind(this, 'Profile')} key={index}>
-                            <Avatar source={avatar}/>
-                            <View>
-                                <Community>
-                                    {item.community}
-                                </Community>
-                                <Message>
-                                    Я приболел, кто может заменить меня?
-                                </Message>
-                            </View>
-                        </ChatBlock>
-                    </Swipeable>
+                <ChatBlock onPress={navigate('Message', item)} key={index}>
+                    <Avatar source={avatar}/>
+                    <View>
+                        <Community>
+                            {item.community}
+                        </Community>
+                        <Message>
+                            Я приболел, кто может заменить меня?
+                        </Message>
+                    </View>
+                </ChatBlock>
+
+                    // <Swipeable
+                    //     rightButtons={[
+                    //         <SwipeViewButton style={{ backgroundColor: '#B4C1CB', marginRight: 20 }}>
+                    //             <FontAwesome5 name="volume-up" size={40}/>
+                    //         </SwipeViewButton>,
+                    //         <SwipeViewButton>
+                    //             <FontAwesome5 name="trash-alt" size={40}/>
+                    //         </SwipeViewButton>
+                    //     ]}>
+                    //     <ChatBlock onPress={navigate.bind(this, 'Profile')} key={index}>
+                    //         <Avatar source={avatar}/>
+                    //         <View>
+                    //             <Community>
+                    //                 {item.community}
+                    //             </Community>
+                    //             <Message>
+                    //                 Я приболел, кто может заменить меня?
+                    //             </Message>
+                    //         </View>
+                    //     </ChatBlock>
+                    // </Swipeable>
 
                 )
             )}

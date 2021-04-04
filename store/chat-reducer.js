@@ -3,13 +3,22 @@
 let initialState = {
     items: [
         {
-            community: 'КБ-4'
+            community: 'КБ-4',
+            message: [{
+                id:1, element: "Hi"
+            }]
         },
         {
-            community: 'КБ-2'
+            community: 'КБ-2',
+            message: [{
+                id:1, element: "Hi"
+            }]
         },
         {
-            community: 'КБ-3'
+            community: 'КБ-3',
+            message: [{
+                id:1, element: "Hi"
+            }]
         }
     ]
 }

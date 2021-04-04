@@ -1,24 +1,30 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {SafeAreaView, StyleSheet, Text, TouchableOpacity} from "react-native";
 import {Avatar} from 'react-native-paper'
 import styled from "styled-components/native";
 import {AuthContext} from "../context";
 import axios from "axios";
+import { AsyncStorage } from 'react-native';
 
 const Profile = () => {
 
-    let userToken = localStorage.getItem('token')
-    React.useEffect(()=>{
-        try {
-            axios.get("https://mgupi.herokuapp.com/user", { headers: { Authorization : `Bearer ${userToken}` } } ).then((response) => {
-                console.log('this is semcode',response.data);
-            });
-        }catch (e) {
-            console.error(`Error received from axios.get: ${JSON.stringify(e)}`);
-        }
-    })
-
     const { signOut } = React.useContext(AuthContext)
+
+    // const _retrieveData = async () => {
+    //     try {
+    //         const JWT = await AsyncStorage.getItem('jwt');
+    //         if (JWT !== null) {
+    //             // We have data!!
+    //             console.log(JWT);
+    //         }
+    //     } catch (error) {
+    //         // Error retrieving data
+    //     }
+    // };
+    //
+    // useEffect(() => {
+    //     _retrieveData().then(data => setProducts(data));
+    // }, []);
 
     //"firstName": "test4",
     // "lastName": "test4",

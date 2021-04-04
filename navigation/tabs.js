@@ -1,7 +1,9 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {FontAwesome5} from '@expo/vector-icons'
-import {ChatScreen, Feeds, Profile} from "../screens";
+import {ChatScreen, Profile} from "../screens";
+import SampleComponent from "../screens/Chat/Test";
+import { Text } from 'react-native'
 
 const Tab = createBottomTabNavigator();
 
@@ -31,10 +33,12 @@ const Tabs = () => {
                 }}
             />
             <Tab.Screen
-                name="Feeds"
-                component={Feeds}
+                name="SampleComponent"
+                component={SampleComponent}
                 options={{
-                    tabBarIcon: () => <FontAwesome5 name="newspaper" size={24}/>
+                    tabBarIcon: () =>
+                        // <FontAwesome5 name="comment" size={24}/>
+                    <Text> Тест </Text>
                 }}
             />
         </Tab.Navigator>
